@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe JSONAPIHelpers::Serializers::Datum do
   describe '#to_h' do
     let(:key_transform) { :dash }
-    let(:json_api_data) do
+    let(:jsonapi_data) do
       JSONAPIHelpers::Serializers::Data.new(
         id: '1',
         type: :user_notice,
@@ -19,7 +19,7 @@ RSpec.describe JSONAPIHelpers::Serializers::Datum do
         data: [{ id: '1', type: 'user-notice', attributes: { id: '1' } }],
         meta: { total: 1 }
       }
-      expect(described_class.new([json_api_data]).to_h).to eq(data)
+      expect(described_class.new([jsonapi_data]).to_h).to eq(data)
     end
 
     context 'with underscore key transform' do
@@ -30,7 +30,7 @@ RSpec.describe JSONAPIHelpers::Serializers::Datum do
           data: [{ id: '1', type: 'user_notice', attributes: { id: '1' } }],
           meta: { total: 1 }
         }
-        expect(described_class.new([json_api_data]).to_h).to eq(data)
+        expect(described_class.new([jsonapi_data]).to_h).to eq(data)
       end
     end
   end

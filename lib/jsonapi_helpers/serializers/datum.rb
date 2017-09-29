@@ -3,8 +3,8 @@
 module JSONAPIHelpers
   module Serializers
     class Datum
-      def initialize(json_api_datums)
-        @datums = json_api_datums
+      def initialize(jsonapi_datums)
+        @datums = jsonapi_datums
       end
 
       def to_h
