@@ -1,4 +1,5 @@
 # JSONAPIHelpers
+[![Build Status](https://travis-ci.org/buren/jsonapi_helpers.svg?branch=master)](https://travis-ci.org/buren/jsonapi_helpers)
 
 A set of helpers for generating JSON API compliant responses with together with the active_model_serializers gem.
 
