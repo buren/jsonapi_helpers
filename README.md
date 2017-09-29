@@ -2,7 +2,7 @@
 
 A set of helpers for generating JSON API compliant responses with together with the active_model_serializers gem.
 
-:warning: This gem is by no means complete and currently is not fit for use outside of `just_match_api`.
+:warning: The API for this is still pretty rough.
 
 ## Installation
 
@@ -104,7 +104,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/justarrived/just_match_api/issues.
+Bug reports and pull requests are welcome on GitHub at https://github.com/buren/json_api_helpers/issues.
 
 ## License
 

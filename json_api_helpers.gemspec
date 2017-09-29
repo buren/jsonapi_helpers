@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A set of helpers for generating JSON API compliant responses.'
   spec.description   = 'A set of helpers for generating JSON API compliant responses with together with the active_model_serializers gem.' # rubocop:disable Metrics/LineLength
-  spec.homepage      = 'https://github.com/justarrived/just_match_api/tree/master/lib/json_api_helpers'
+  spec.homepage      = 'https://github.com/buren/json_api_helpers'
   spec.license       = 'MIT'
 
   spec.files         = Dir['lib/*/**.rb'] + Dir['lib/*/**.json'] + Dir['bin/*'] + %w(README.MD LICENSE.txt) # rubocop:disable Metrics/LineLength
