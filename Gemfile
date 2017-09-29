@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in json_api_helpers.gemspec
+# Specify your gem's dependencies in jsonapi_helpers.gemspec
 gemspec

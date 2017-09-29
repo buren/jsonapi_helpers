@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe JsonApiHelpers::ActionDispatchRequestWrapper do
+RSpec.describe JSONAPIHelpers::ActionDispatchRequestWrapper do
   let(:url) { 'http://example.com' }
   let(:name) { 'Watwoman' }
   let(:object) { OpenStruct.new(watman: name, base_url: url, path: '') }

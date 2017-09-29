@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Converted to RSpec from https://github.com/rails-api/active_model_serializers/blob/a1826186e556b4aa6cbe2a2588df8b2186e06252/test/active_model_serializers/key_transform_test.rb
-RSpec.describe JsonApiHelpers::KeyTransform do
+RSpec.describe JSONAPIHelpers::KeyTransform do
   let(:obj) { Object.new }
 
   describe '#camel' do

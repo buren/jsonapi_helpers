@@ -1,4 +1,4 @@
-# JsonApiHelpers
+# JSONAPIHelpers
 
 A set of helpers for generating JSON API compliant responses with together with the active_model_serializers gem.
 
@@ -9,7 +9,7 @@ A set of helpers for generating JSON API compliant responses with together with 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'json_api_helpers'
+gem 'jsonapi_helpers'
 ```
 
 And then execute:
@@ -18,18 +18,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install json_api_helpers
+    $ gem install jsonapi_helpers
 
 ## Usage
 
 :warning: You must configure `deserializer_klass` and `params_klass`, if you want to use the `Dersializer`.
 
 ```ruby
-require 'json_api_helpers'
+require 'jsonapi_helpers'
 
-include JsonApiHelpers::Alias
+include JSONAPIHelpers::Alias
 
-JsonApiHelpers.configure do |config|
+JSONAPIHelpers.configure do |config|
   config.deserializer_klass = ActiveModelSerializers::Deserialization
   config.params_klass = ActionController::Parameters
   # optional (unaltered is the default)
@@ -37,7 +37,7 @@ JsonApiHelpers.configure do |config|
 end
 
 # Error
-errors = JsonApiHelpers::Serializers::Errors.new
+errors = JSONAPIHelpers::Serializers::Errors.new
 errors.add(status: 422, detail: 'too short', attribute: :first_name).to_h
 errors.to_h
 # => {
@@ -63,27 +63,27 @@ class ApplicationController < ActionController::Base
   ALLOWED_FILTERS = %i(created_at).freeze
 
   def jsonapi_params
-    @_deserialized_params ||= JsonApiHelpers::Serializers::Deserializer.parse(params)
+    @_deserialized_params ||= JSONAPIHelpers::Serializers::Deserializer.parse(params)
   end
 
   def include_params
-    @_include_params ||= JsonApiHelpers::Params::Includes.new(params[:include])
+    @_include_params ||= JSONAPIHelpers::Params::Includes.new(params[:include])
   end
 
   def fields_params
-    @_fields_params ||= JsonApiHelpers::Params::Fields.new(params[:fields])
+    @_fields_params ||= JSONAPIHelpers::Params::Fields.new(params[:fields])
   end
 
   def sort_params
     sortable_fields = self.class::SORTABLE_FIELDS
     default_sorting = self.class::DEFAULT_SORTING
-    @_sort_params = JsonApiHelpers::Params::Sort.build(params[:sort], sortable_fields, default_sorting)
+    @_sort_params = JSONAPIHelpers::Params::Sort.build(params[:sort], sortable_fields, default_sorting)
   end
 
   def filter_params
     filterable_fields = self.class::ALLOWED_FILTERS
     transformable = self.class::TRANSFORMABLE_FILTERS
-    @_filter_params = JsonApiHelpers::Params::Filter.build(params[:filter], filterable_fields, transformable)
+    @_filter_params = JSONAPIHelpers::Params::Filter.build(params[:filter], filterable_fields, transformable)
   end
 
   # ...
@@ -100,11 +100,11 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 * Testing the `Serializer` class is currently not "possible" and the code in there is hard to follow and not very well extracted, this should be fixed :)
 * Better dependency injection
-* Test `JsonApiHelpers::Serializer` (currently those tests areas in the parent repos tests
+* Test `JSONAPIHelpers::Serializer` (currently those tests areas in the parent repos tests
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/buren/json_api_helpers/issues.
+Bug reports and pull requests are welcome on GitHub at https://github.com/buren/jsonapi_helpers/issues.
 
 ## License
 
