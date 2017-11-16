@@ -76,15 +76,19 @@ class ApplicationController < ActionController::Base
   end
 
   def sort_params
-    sortable_fields = self.class::SORTABLE_FIELDS
-    default_sorting = self.class::DEFAULT_SORTING
-    @_sort_params = JSONAPIHelpers::Params::Sort.build(params[:sort], sortable_fields, default_sorting)
+    @_sort_params ||= begin
+      sortable_fields = self.class::SORTABLE_FIELDS
+      default_sorting = self.class::DEFAULT_SORTING
+      JSONAPIHelpers::Params::Sort.build(params[:sort], sortable_fields, default_sorting)
+    end
   end
 
   def filter_params
-    filterable_fields = self.class::ALLOWED_FILTERS
-    transformable = self.class::TRANSFORMABLE_FILTERS
-    @_filter_params = JSONAPIHelpers::Params::Filter.build(params[:filter], filterable_fields, transformable)
+    @_filter_params ||= begin
+      filterable_fields = self.class::ALLOWED_FILTERS
+      transformable = self.class::TRANSFORMABLE_FILTERS
+      JSONAPIHelpers::Params::Filter.build(params[:filter], filterable_fields, transformable)
+    end
   end
 
   # ...
@@ -99,9 +103,9 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Future
 
-* Testing the `Serializer` class is currently not "possible" and the code in there is hard to follow and not very well extracted, this should be fixed :)
 * Better dependency injection
-* Test `JSONAPIHelpers::Serializer` (currently those tests areas in the parent repos tests
+* Clean up/normalize the public API
+* Support more of the [JSONAPI](http://jsonapi.org/) standard
 
 ## Contributing
 
